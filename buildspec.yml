@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Node.js application
+      - npm run build  # If you have a custom build script, replace this with the appropriate command
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files: '**/*'  # This will include all files in the build output
+  base-directory: /app  # Set this to the appropriate base directory for your application
